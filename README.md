@@ -127,5 +127,5 @@ import type {
   ApplePayElement,
   PaymentSubmitResponse,
   PaymentSubmitError,
-} from '@teya/teya-blocks-js';
+} from '@teyaproduct/teya-blocks-js';
 ```
