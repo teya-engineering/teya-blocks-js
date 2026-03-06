@@ -1,11 +1,11 @@
-# @teyapayments/teya-blocks-js
+# @teyaproduct/teya-blocks-js
 
 Lightweight JavaScript loader for the Teya Blocks payment SDK. Loads the full SDK from CDN and provides TypeScript types.
 
 ## Installation
 
 ```bash
-npm install @teyapayments/teya-blocks-js
+npm install @teyaproduct/teya-blocks-js
 ```
 or 
 ```bash
@@ -17,7 +17,7 @@ or
 ### ES Modules
 
 ```typescript
-import { initTeyaBlocks } from '@teyapayments/teya-blocks-js';
+import { initTeyaBlocks } from '@teyaproduct/teya-blocks-js';
 
 const teya = await initTeyaBlocks('your-session-token');
 

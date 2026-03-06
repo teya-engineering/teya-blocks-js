@@ -70,6 +70,59 @@ export interface CheckoutElementRef {
   submitPayment(): Promise<PaymentSubmitResponse>;
 }
 
+// ============================================================================
+// Apple Pay Types
+// ============================================================================
+
+export type ApplePayContactField = 'postalAddress' | 'name' | 'email' | 'phone' | 'phoneticName';
+
+export type ApplePayMerchantCapability = 'supports3DS' | 'supportsEMV' | 'supportsCredit' | 'supportsDebit';
+
+export type ApplePayShippingType = 'shipping' | 'delivery' | 'storePickup' | 'servicePickup';
+
+export type ApplePayShippingContactEditingMode = 'available' | 'storePickup' | 'enabled';
+
+export interface ApplePayPaymentContact {
+  phoneNumber?: string;
+  emailAddress?: string;
+  givenName?: string;
+  familyName?: string;
+  phoneticGivenName?: string;
+  phoneticFamilyName?: string;
+  addressLines?: string[];
+  subLocality?: string;
+  locality?: string;
+  postalCode?: string;
+  subAdministrativeArea?: string;
+  administrativeArea?: string;
+  country?: string;
+  countryCode?: string;
+}
+
+export interface ApplePayLineItem {
+  label: string;
+  amount: string;
+  type?: 'final' | 'pending';
+  paymentTiming?: 'immediate' | 'recurring';
+  recurringPaymentStartDate?: Date;
+  recurringPaymentEndDate?: Date;
+  recurringPaymentIntervalUnit?: 'year' | 'month' | 'day' | 'hour' | 'minute';
+  recurringPaymentIntervalCount?: number;
+}
+
+export interface ApplePayRecurringPaymentRequest {
+  paymentDescription: string;
+  regularBilling: ApplePayLineItem;
+  trialBilling?: ApplePayLineItem;
+  billingAgreement?: string;
+  managementURL: string;
+  tokenNotificationURL?: string;
+}
+
+// ============================================================================
+// Apple Pay Element
+// ============================================================================
+
 export interface ApplePayElementOptions {
   paymentRequest?: ApplePayPaymentRequest;
   buttonType?: 'plain' | 'buy' | 'donate' | 'checkout' | 'book' | 'subscribe' | 'reload' | 'add-money' | 'top-up' | 'order' | 'rent' | 'support' | 'contribute' | 'tip' | 'pay';
@@ -90,12 +143,18 @@ export interface ApplePayPaymentRequest {
   currencyCode: string;
   total: { label: string; amount: string; type?: 'final' | 'pending' };
   supportedNetworks?: string[];
-  merchantCapabilities?: string[];
-  lineItems?: Array<{ label: string; amount: string; type?: 'final' | 'pending' }>;
-  requiredBillingContactFields?: ('postalAddress' | 'name' | 'email' | 'phone')[];
-  requiredShippingContactFields?: ('postalAddress' | 'name' | 'email' | 'phone')[];
+  merchantCapabilities?: ApplePayMerchantCapability[];
+  lineItems?: ApplePayLineItem[];
+  requiredBillingContactFields?: ApplePayContactField[];
+  requiredShippingContactFields?: ApplePayContactField[];
   shippingMethods?: Array<{ label: string; amount: string; identifier: string; detail?: string }>;
   applicationData?: string;
+  billingContact?: ApplePayPaymentContact;
+  shippingContact?: ApplePayPaymentContact;
+  shippingType?: ApplePayShippingType;
+  shippingContactEditingMode?: ApplePayShippingContactEditingMode;
+  supportedCountries?: string[];
+  recurringPaymentRequest?: ApplePayRecurringPaymentRequest;
 }
 
 export interface ApplePayElement extends BaseElement {

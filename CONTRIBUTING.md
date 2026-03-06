@@ -1,4 +1,4 @@
-# Contributing to @teyapayments/teya-blocks-js
+# Contributing to @teyaproduct/teya-blocks-js
 
 Thank you for your interest in contributing! This guide will help you get started.
 
