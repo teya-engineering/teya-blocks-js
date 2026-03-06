@@ -1,5 +1,5 @@
 {
-  "name": "@teyapayments/teya-blocks-js",
+  "name": "@teyaproduct/teya-blocks-js",
   "version": "1.0.0",
   "description": "Lightweight loader for Teya Blocks SDK",
   "type": "module",

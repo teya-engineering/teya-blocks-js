@@ -34,6 +34,13 @@ export type {
   ApplePayPaymentRequest,
   ApplePayPaymentResult,
   ApplePayChangeEvent,
+  ApplePayContactField,
+  ApplePayMerchantCapability,
+  ApplePayShippingType,
+  ApplePayShippingContactEditingMode,
+  ApplePayPaymentContact,
+  ApplePayLineItem,
+  ApplePayRecurringPaymentRequest,
 } from './elements';
 
 export type {
