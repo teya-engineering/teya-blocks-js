@@ -9,7 +9,7 @@ npm install @teyaproduct/teya-blocks-js
 ```
 or 
 ```bash
-<script src="https://cdn.teya.com/web-sdk/teya-blocks-js.js"></script>
+<script src="https://cdn.teya.com/static/web-sdk/js/teya-blocks-js.js"></script>
 ```
 
 ## Usage
