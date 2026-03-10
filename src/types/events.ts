@@ -26,3 +26,25 @@ export interface PaymentCompletedEvent {
   status: 'SUCCESS' | 'FAILURE' | 'PENDING';
   statusReason?: string;
 }
+
+// ============================================================================
+// DCC (Dynamic Currency Conversion) Events
+// ============================================================================
+
+export interface DccOfferedEventData {
+  cardCurrency: string;
+  merchantCurrency: string;
+  cardAmount: { value: number; currency: string };
+  merchantAmount: { value: number; currency: string };
+  exchangeRate: string;
+  markup: string;
+}
+
+export interface DccSelectedEventData {
+  selectedCurrency: 'CARD_CURRENCY' | 'MERCHANT_CURRENCY';
+  amount: { value: number; currency: string };
+}
+
+export interface DccSkippedEventData {
+  reason: 'card_not_eligible' | 'same_currency' | 'dcc_disabled' | 'check_failed';
+}

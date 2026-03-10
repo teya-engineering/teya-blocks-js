@@ -1,4 +1,4 @@
-import type { ElementChangeEvent } from './events';
+import type { ElementChangeEvent, DccOfferedEventData, DccSelectedEventData, DccSkippedEventData } from './events';
 import type { PaymentSubmitResponse, PaymentSubmitError } from './responses';
 import type { Appearance } from './teya-blocks';
 
@@ -25,6 +25,11 @@ export interface CardElementOptions {
   onSuccess?: (response: PaymentSubmitResponse) => void;
   onError?: (error: PaymentSubmitError) => void;
   onTokenRefresh?: () => Promise<string>;
+  onDccOffered?: (data: DccOfferedEventData) => void;
+  onDccSelectionRequired?: () => void;
+  onDccSelected?: (data: DccSelectedEventData) => void;
+  onDccCancelled?: () => void;
+  onDccSkipped?: (data: DccSkippedEventData) => void;
 }
 
 export interface CardElement extends BaseElement {
