@@ -48,6 +48,9 @@ export type {
   ElementChangeEvent,
   ElementErrorEvent,
   PaymentCompletedEvent,
+  DccOfferedEventData,
+  DccSelectedEventData,
+  DccSkippedEventData,
 } from './events';
 
 export type { PaymentSubmitResponse, PaymentSubmitError } from './responses';
