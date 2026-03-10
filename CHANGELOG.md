@@ -4,4 +4,4 @@
 
 ### Minor Changes
 
-- Added additonal types for handling dcc events in card element
+- Added additional types for handling dcc events in card element
