@@ -109,8 +109,8 @@ This project uses [Changesets](https://github.com/changesets/changesets) for ver
    git commit -m "chore: version packages"
    git push
    ```
-
-3. Create a **GitHub Release** from the `main` branch. This triggers the CI workflow that builds and publishes the package to npm.
+3. Notify ecommerce team about the PR in the #team-ecommerce slack channel
+4. Create a **GitHub Release** from the `main` branch. This triggers the CI workflow that builds and publishes the package to npm.
 
 > **Note:** If your PR doesn't need a release (e.g. docs-only changes), just merge without running `changeset version`. The package won't be published.
 
