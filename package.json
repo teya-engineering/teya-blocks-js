@@ -1,6 +1,6 @@
 {
   "name": "@teyaproduct/teya-blocks-js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Lightweight loader for Teya Blocks SDK",
   "type": "module",
   "main": "dist/index.js",

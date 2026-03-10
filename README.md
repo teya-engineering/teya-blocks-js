@@ -34,7 +34,7 @@ if (teya) {
 ### Script Tag (CDN)
 
 ```html
-<script src="https://cdn.teya.com/web-sdk/teya-blocks-js.js"></script>
+<script src="https://cdn.teya.com/static/web-sdk/js/teya-blocks-js.js"></script>
 <script>
   TeyaBlocksLoader.initTeyaBlocks('your-session-token').then(function (teya) {
     if (teya) {
