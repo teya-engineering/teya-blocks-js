@@ -136,11 +136,11 @@ export interface ApplePayElementOptions {
   onReady?: () => void;
   onChange?: (event: ApplePayChangeEvent) => void;
   onClick?: () => void;
-  onPaymentCompleted?: (result: ApplePayPaymentResult) => void;
+  onSuccess?: (response: PaymentSubmitResponse) => void;
+  onError?: (error: PaymentSubmitError) => void;
   onCancel?: () => void;
   onSessionStarted?: () => void;
   onSessionEnded?: () => void;
-  onError?: (error: { message: string; code?: string }) => void;
 }
 
 export interface ApplePayPaymentRequest {
@@ -164,7 +164,7 @@ export interface ApplePayPaymentRequest {
 
 export interface ApplePayElement extends BaseElement {
   canMakePayments(): Promise<boolean>;
-  createPaymentMethod(request?: ApplePayPaymentRequest): Promise<ApplePayPaymentResult>;
+  createPaymentMethod(request?: ApplePayPaymentRequest): Promise<PaymentSubmitResponse>;
 }
 
 export interface ApplePayPaymentResult {
@@ -172,6 +172,7 @@ export interface ApplePayPaymentResult {
   transactionId: string;
   status: 'SUCCESS' | 'FAILURE' | 'PENDING';
   statusReason?: string;
+  paymentResponse?: PaymentSubmitResponse;
 }
 
 export interface ApplePayChangeEvent {
